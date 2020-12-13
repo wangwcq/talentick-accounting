@@ -6,6 +6,7 @@ ui-container
   ui-card(header="当前账册").mb
     van-cell(title="YS" is-link to="/member/books/1")
   ui-card(header="选择账册").mb
+    van-search(placeholder="搜索账册")
     van-cell(title="创建账册" is-link to="/member/books/new-book")
     van-cell(title="我" is-link)
     van-cell(title="YS" is-link)

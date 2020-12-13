@@ -22,7 +22,9 @@ ui-container
             app-field(v-model="postForm.category" label="业务分类")
             app-field(v-model="postForm.amount" label="金额")
             app-field(v-model="postForm.memo" label="摘要")
-            app-field(v-model="postForm.amount" label="原始凭证类型")
+            app-field(v-model="postForm.attachments" label="原始凭证类型")
+            ui-flex(row j-end a-end).mt
+              ui-button(type="danger" plain size="mini") 删除
         ui-col(:xs="24" :md="10")
           ui-divider(content-position="left") 关联记录
           div
@@ -38,21 +40,25 @@ ui-container
           van-grid-item 重复：每月1日
           van-grid-item 日期：2020-12-12
           van-grid-item 原始凭证：2
-        van-grid(:column-num="5")
+        van-grid(:column-num="6")
           van-grid-item #
           van-grid-item 摘要
           van-grid-item 科目      
           van-grid-item 借方金额
           van-grid-item 贷方金额
+          van-grid-item 操作
           template(v-for="postForm in postForms")
             van-grid-item(:key="`id-${postForm.id}`") {{ postForm.id }}
             van-grid-item(:key="`memo-${postForm.id}`") {{ postForm.memo }}
             van-grid-item(:key="`category-${postForm.id}`") {{ postForm.category }}
             van-grid-item(:key="`amount-credit-${postForm.id}`") {{ postForm.amount > 0 ? postForm.amount : '' }}
             van-grid-item(:key="`amount-debit-${postForm.id}`") {{ postForm.amount < 0 ? postForm.amount : '' }}       
+            van-grid-item(:key="`ops-buttons-${postForm.id}`") 
+              ui-button(size="mini" type="danger" plain) 删除
   ui-card.mb
-    ui-button(type="primary" @click="handleSubmit") 保存
-  ui-card(header="相关账户")
+    ui-button(type="primary" @click="handleSubmit").mr 保存
+    ui-button(type="danger" size="mini" plain) 删除
+  ui-card(header="相关账户").mb
     van-grid(:column-num="3")
       van-grid-item(icon="arrow" to="/member/books/categories/1" text="账户余额：2000.00")
       van-grid-item(icon="arrow" to="/member/books/categories/1" text="分类余额：2300.00")
@@ -77,6 +83,7 @@ export default {
           category: '备用金',
           amount: 8000,
           memo: '备用金',
+          attachments: ['自制凭证'],
         },
         {
           id: 2,
@@ -84,6 +91,7 @@ export default {
           category: '备用金',
           amount: -8000,
           memo: '备用金',
+          attachments: ['银行回单'],
         },
       ],
     };

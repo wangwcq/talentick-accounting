@@ -4,6 +4,8 @@
 
 ```
 OK    /
+TODO  /sign-up
+TODO  /forgot-password
 OK    /member
 OK    /member/posts
 OK    /member/posts/post
@@ -26,9 +28,11 @@ OK  /member/reports/:type
     - TODO 数据分析指标
     - TODO 风险预警
 OK    /member/my
+TODO  /member/my/profile
 OK    /member/my/security
 ```
 
+- TODO 搜索
 - TODO 插件系统
   - TODO 官方文档更新推送、查询
   - TODO 优惠资质评估：通过附列资料评估是否符合某些资质

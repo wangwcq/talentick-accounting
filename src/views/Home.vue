@@ -8,7 +8,12 @@ ui-container
     app-field(v-model="form.username" label="用户名")
     app-field(v-model="form.password" label="密码")
   ui-card.mb
-    ui-button(@click="handleSubmitLogin") 登录
+    ui-button(type="primary" @click="handleSubmitLogin") 登录
+  ui-card.mb  
+    router-link(to="/sign-up").mr
+      ui-button 注册
+    router-link(to="/forgot-password")
+      ui-button 忘记密码
 </template>
 
 <script>

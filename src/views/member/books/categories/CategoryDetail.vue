@@ -14,8 +14,9 @@ ui-container
         ui-radio-button(label="收入")
         ui-radio-button(label="费用")
   ui-card
-    router-link(to="/member/books")
+    router-link(to="/member/books").mr
       ui-button(type="primary") 保存
+    ui-button(type="danger" plain) 删除
 </template>
 
 <script>
